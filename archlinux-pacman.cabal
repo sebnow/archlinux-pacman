@@ -1,0 +1,14 @@
+Name:                archlinux-pacman
+Version:             0.1.0
+Homepage:            http://www.github.com/sebnow/archlinux-pacman-haskell
+License:             MIT
+License-file:        LICENSE
+Author:              Sebastian Nowicki
+Maintainer:          sebnow@gmail.com
+Category:            Distribution, System
+Build-type:          Simple
+Cabal-version:       >=1.2
+Synopsis:            Pacman package and database parsing library
+
+Library
+
