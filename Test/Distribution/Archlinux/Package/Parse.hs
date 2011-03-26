@@ -10,7 +10,7 @@ import Test.Framework.Providers.QuickCheck2
 import Test.QuickCheck
 import Test.QuickCheck.Arbitrary
 
-newtype Field = Field { getField :: B8.ByteString }
+newtype Field = Field { getField :: B.ByteString }
     deriving (Show, Read, Eq)
 
 instance Arbitrary Field where
@@ -18,13 +18,13 @@ instance Arbitrary Field where
         where gen   = listOf (oneof [choose ('>', '~'), choose ('$', '<')]) `suchThat` req
               req s = length s > 0 && head s /= '#'
 
-newtype Value = Value { getValue :: B8.ByteString }
+newtype Value = Value { getValue :: B.ByteString }
     deriving (Show, Read, Eq)
 
 instance Arbitrary Value where
     arbitrary = (Value . B8.pack) `fmap` (listOf (choose (' ', '~')))
 
-newtype Comment = Comment { getComment :: B8.ByteString }
+newtype Comment = Comment { getComment :: B.ByteString }
     deriving (Show, Eq);
 
 instance Arbitrary Comment where
@@ -64,8 +64,8 @@ parseMaybe p s = case P.parseOnly p s of
     Left _  -> Nothing
     Right x -> Just x
 
-getDef :: Definition -> B8.ByteString
-getDef (f, v) = (getField f) `B8.append` " = " `B8.append` (getValue v) `B8.append` "\n"
+getDef :: Definition -> B.ByteString
+getDef (f, v) = (getField f) `B.append` " = " `B.append` (getValue v) `B.append` "\n"
 
 wrap :: String -> String -> String -> String
 wrap l r s = l ++ s ++ r
