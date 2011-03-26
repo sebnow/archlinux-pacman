@@ -12,12 +12,14 @@ Synopsis:            Pacman package and database parsing library
 
 Library
     exposed-modules:
+        Distribution.Archlinux.PackageDescription
         Distribution.Archlinux.PackageInfo.Parse
     build-depends:
         attoparsec >= 0.8 && < 0.10,
         base >= 4 && < 6,
         bytestring >= 0.9 && < 0.11,
         Cabal >= 1.9.2 && < 1.11
+        mtl >= 2.0 && < 2.2
 
 test-suite test-package
     type:          exitcode-stdio-1.0
@@ -26,7 +28,10 @@ test-suite test-package
         attoparsec >= 0.8 && < 0.10,
         base >= 4 && < 6,
         bytestring >= 0.9 && < 0.11,
+        HUnit >= 1.2.2 && < 1.2.4,
+        mtl >= 2.0 && < 2.2,
         QuickCheck >= 2.4 && < 2.6,
         test-framework >= 0.3 && < 0.5,
+        test-framework-hunit >= 0.2 && < 0.4,
         test-framework-quickcheck2 >= 0.2 && < 0.4
 
