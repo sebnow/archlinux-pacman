@@ -10,16 +10,24 @@ Build-type:          Simple
 Cabal-version:       >=1.9.2
 Synopsis:            Pacman package and database parsing library
 
+Source-Repository head
+    type:     git
+    location: git://github.com/sebnow/archlinux-pacman.git
+
 Library
     exposed-modules:
+        Distribution.Archlinux.Package
         Distribution.Archlinux.PackageDescription
         Distribution.Archlinux.PackageInfo.Parse
+    other-modules:
+        Codec.Archive.Tar.Util
     build-depends:
         attoparsec >= 0.8 && < 0.10,
         base >= 4 && < 6,
         bytestring >= 0.9 && < 0.11,
         Cabal >= 1.9.2 && < 1.11,
-        mtl >= 2.0 && < 2.2
+        mtl >= 2.0 && < 2.2,
+        tar == 0.3.*
 
 test-suite test-package
     type:          exitcode-stdio-1.0
